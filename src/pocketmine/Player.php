@@ -1846,11 +1846,6 @@ class Player extends Human implements CommandSender, InventoryHolder, ChunkLoade
 					break;
 				}
 
-				if(strlen($packet->skin) !== 64 * 32 * 4 and strlen($packet->skin) !== 64 * 64 * 4){
-					$this->close("", "disconnectionScreen.invalidSkin");
-					break;
-				}
-
 				$this->setSkin($packet->skin, $packet->slim);
 
 				$this->server->getPluginManager()->callEvent($ev = new PlayerPreLoginEvent($this, "Plugin reason"));
